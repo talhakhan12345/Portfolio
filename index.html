@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talha's Portfolio</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;700&display=swap" rel="stylesheet">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <!-- AOS Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Theme Styles -->
+  <style id="theme-style">
+    :root {
+      --bg-color: #0e0e0e;
+      --text-color: #d4d4d4;
+      --accent-color: #28a745;
+      --card-bg: #1b1b1b;
+      --card-text-color: #ffffff;
+      --badge-bg: #28a745;
+      --btn-toggle-bg: #ffffff;
+      --btn-toggle-color: #000000;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Raleway', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .section-title {
+      font-size: 2.7rem;
+      font-weight: 700;
+      border-bottom: 3px solid var(--accent-color);
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+
+    .hero {
+      padding: 150px 0;
+      text-align: center;
+      background-color: var(--bg-color);
+    }
+
+    .hero h1 {
+      font-size: 4.2rem;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      margin-top: 20px;
+      color: #bbb;
+    }
+
+    .btn-primary {
+      background-color: var(--accent-color);
+      border-color: var(--accent-color);
+      font-weight: 500;
+    }
+
+    .btn-primary:hover {
+      background-color: #218838;
+    }
+
+    .btn-outline-primary {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+    }
+
+    .btn-outline-primary:hover {
+      background-color: var(--accent-color);
+      color: #fff;
+    }
+
+    .project-card {
+      background-color: var(--card-bg);
+      color: var(--card-text-color);
+      border: 1px solid #333;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px rgba(40, 167, 69, 0.3);
+    }
+
+    .skills {
+      background-color: var(--card-bg);
+      padding: 60px 0;
+    }
+
+    .skill-badge {
+      background-color: var(--badge-bg);
+      color: #fff;
+      border-radius: 20px;
+      padding: 10px 20px;
+      margin: 8px;
+      display: inline-block;
+      font-weight: 600;
+    }
+
+    .contact-info p {
+      font-size: 1.1rem;
+    }
+
+    .link-primary {
+      color: var(--accent-color);
+    }
+
+    .link-primary:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      background-color: #111;
+      text-align: center;
+      padding: 30px 0;
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 60px;
+    }
+
+    #loader {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      background: var(--bg-color);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .loader-circle {
+      width: 60px;
+      height: 60px;
+      border: 6px solid var(--accent-color);
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    #theme-toggle {
+      background-color: var(--btn-toggle-bg);
+      color: var(--btn-toggle-color);
+      border: none;
+    }
+
+    #theme-toggle:hover {
+      opacity: 0.8;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Theme Switcher -->
+  <div class="text-end p-3">
+    <button class="btn btn-sm" onclick="toggleTheme()" id="theme-toggle">Toggle Theme</button>
+  </div>
+
+  <!-- Loader -->
+  <div id="loader">
+    <div class="loader-circle"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" data-aos="fade-up">
+    <div class="container">
+      <h1>Hi, I'm Talha</h1>
+      <p class="lead">Creative Web Developer | Front-End Specialist | UI/UX Explorer</p>
+      <a href="#projects" class="btn btn-primary mt-4">Explore My Work</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-5" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p>I am a passionate and skilled web developer with experience in creating responsive, modern, and user-friendly websites. I specialize in HTML, CSS, JavaScript, and Bootstrap, and I'm always looking to learn new technologies and design trends to enhance my work.</p>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills" data-aos="fade-up">
+    <div class="container text-center">
+      <h2 class="section-title">Skills</h2>
+      <div class="mt-4">
+        <span class="skill-badge">HTML5</span>
+        <span class="skill-badge">CSS3</span>
+        <span class="skill-badge">JavaScript</span>
+        <span class="skill-badge">Bootstrap 5</span>
+        <span class="skill-badge">Responsive Design</span>
+        <span class="skill-badge">Git & GitHub</span>
+        <span class="skill-badge">UI/UX Principles</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-5" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card project-card p-4">
+            <h5>Modern Landing Page</h5>
+            <p>Crafted a sleek and professional landing page using Bootstrap 5, perfect for startups and products.</p>
+            <a href="#" class="btn btn-outline-primary btn-sm">Live Demo</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card project-card p-4">
+            <h5>Dark Portfolio Website</h5>
+            <p>Developed a dark-themed, interactive portfolio with animations and responsive layout.</p>
+            <a href="#" class="btn btn-outline-primary btn-sm">Live Demo</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card project-card p-4">
+            <h5>Interactive Dashboard</h5>
+            <p>Built a dynamic dashboard using JavaScript and Bootstrap components for admin interfaces.</p>
+            <a href="#" class="btn btn-outline-primary btn-sm">Live Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5" data-aos="fade-up">
+    <div class="container">
+      <h2 class="section-title">Contact Me</h2>
+      <div class="contact-info">
+        <p><strong>Email:</strong> talha@example.com</p>
+        <p><strong>GitHub:</strong> <a href="#" class="link-primary">github.com/talha</a></p>
+        <p><strong>LinkedIn:</strong> <a href="#" class="link-primary">linkedin.com/in/talha</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" data-aos="fade-up">
+    <div class="container">
+      <p>&copy; 2025 Talha. Crafted with passion and Bootstrap 💚</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      document.getElementById('loader').style.display = 'none';
+      AOS.init({ duration: 1000 });
+    });
+
+    let isDark = true;
+    function toggleTheme() {
+      const styleTag = document.getElementById('theme-style');
+      if (isDark) {
+        styleTag.innerHTML = `
+        :root {
+          --bg-color: #ffffff;
+          --text-color: #111;
+          --accent-color: #007bff;
+          --card-bg: #f8f9fa;
+          --card-text-color: #000000;
+          --badge-bg: #007bff;
+          --btn-toggle-bg: #000000;
+          --btn-toggle-color: #ffffff;
+        }
+        ` + styleTag.innerHTML.slice(styleTag.innerHTML.indexOf('body'));
+      } else {
+        styleTag.innerHTML = `
+        :root {
+          --bg-color: #0e0e0e;
+          --text-color: #d4d4d4;
+          --accent-color: #28a745;
+          --card-bg: #1b1b1b;
+          --card-text-color: #ffffff;
+          --badge-bg: #28a745;
+          --btn-toggle-bg: #ffffff;
+          --btn-toggle-color: #000000;
+        }
+        ` + styleTag.innerHTML.slice(styleTag.innerHTML.indexOf('body'));
+      }
+      isDark = !isDark;
+    }
+  </script>
+</body>
+
+</html>
