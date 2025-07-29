@@ -1,307 +1,500 @@
-<!DOCTYPE html>
-<html lang="en">
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Talha's Portfolio</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Talha's Portfolio</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;700&display=swap" rel="stylesheet">
-  <!-- Animate.css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <!-- AOS Library -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- Theme Styles -->
-  <style id="theme-style">
-    :root {
-      --bg-color: #0e0e0e;
-      --text-color: #d4d4d4;
-      --accent-color: #28a745;
-      --card-bg: #1b1b1b;
-      --card-text-color: #ffffff;
-      --badge-bg: #28a745;
-      --btn-toggle-bg: #ffffff;
-      --btn-toggle-color: #000000;
-    }
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
 
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      font-family: 'Raleway', sans-serif;
-      scroll-behavior: smooth;
-    }
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;500;700&display=swap" rel="stylesheet"/>
 
-    .section-title {
-      font-size: 2.7rem;
-      font-weight: 700;
-      border-bottom: 3px solid var(--accent-color);
-      display: inline-block;
-      margin-bottom: 2rem;
-    }
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-    .hero {
-      padding: 150px 0;
-      text-align: center;
-      background-color: var(--bg-color);
-    }
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
 
-    .hero h1 {
-      font-size: 4.2rem;
-      font-weight: 700;
-      color: var(--accent-color);
-    }
-
-    .hero p {
-      font-size: 1.4rem;
-      margin-top: 20px;
-      color: #bbb;
-    }
-
-    .btn-primary {
-      background-color: var(--accent-color);
-      border-color: var(--accent-color);
-      font-weight: 500;
-    }
-
-    .btn-primary:hover {
-      background-color: #218838;
-    }
-
-    .btn-outline-primary {
-      border-color: var(--accent-color);
-      color: var(--accent-color);
-    }
-
-    .btn-outline-primary:hover {
-      background-color: var(--accent-color);
-      color: #fff;
-    }
-
-    .project-card {
-      background-color: var(--card-bg);
-      color: var(--card-text-color);
-      border: 1px solid #333;
-      border-radius: 12px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-
-    .project-card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 10px 25px rgba(40, 167, 69, 0.3);
-    }
-
-    .skills {
-      background-color: var(--card-bg);
-      padding: 60px 0;
-    }
-
-    .skill-badge {
-      background-color: var(--badge-bg);
-      color: #fff;
-      border-radius: 20px;
-      padding: 10px 20px;
-      margin: 8px;
-      display: inline-block;
-      font-weight: 600;
-    }
-
-    .contact-info p {
-      font-size: 1.1rem;
-    }
-
-    .link-primary {
-      color: var(--accent-color);
-    }
-
-    .link-primary:hover {
-      text-decoration: underline;
-    }
-
-    .footer {
-      background-color: #111;
-      text-align: center;
-      padding: 30px 0;
-      font-size: 0.9rem;
-      color: #777;
-      margin-top: 60px;
-    }
-
-    #loader {
-      position: fixed;
-      width: 100vw;
-      height: 100vh;
-      background: var(--bg-color);
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .loader-circle {
-      width: 60px;
-      height: 60px;
-      border: 6px solid var(--accent-color);
-      border-top-color: transparent;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-
-    #theme-toggle {
-      background-color: var(--btn-toggle-bg);
-      color: var(--btn-toggle-color);
-      border: none;
-    }
-
-    #theme-toggle:hover {
-      opacity: 0.8;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
+    <style id="theme-style">
+      :root {
+        --bg-color: #0e0e0e;
+        --text-color: #d4d4d4;
+        --accent-color: #28a745;
+        --card-bg: #1b1b1b;
+        --card-text-color: #ffffff;
+        --badge-bg: #28a745;
+        --btn-toggle-bg: #ffffff;
+        --btn-toggle-color: #000000;
+        --badge-bg: #28a745; /* Green */
       }
-    }
-  </style>
-</head>
 
-<body>
-  <!-- Theme Switcher -->
-  <div class="text-end p-3">
-    <button class="btn btn-sm" onclick="toggleTheme()" id="theme-toggle">Toggle Theme</button>
-  </div>
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        font-family: 'Raleway', sans-serif;
+        scroll-behavior: smooth;
+      }
 
-  <!-- Loader -->
-  <div id="loader">
-    <div class="loader-circle"></div>
-  </div>
+      .section-title {
+        font-size: 2.7rem;
+        font-weight: 700;
+        border-bottom: 3px solid var(--accent-color);
+        display: inline-block;
+        margin-bottom: 2rem;
+      }
 
-  <!-- Hero Section -->
-  <section class="hero" data-aos="fade-up">
-    <div class="container">
-      <h1>Hi, I'm Talha</h1>
-      <p class="lead">Creative Web Developer | Front-End Specialist | UI/UX Explorer</p>
-      <a href="#projects" class="btn btn-primary mt-4">Explore My Work</a>
+      .hero {
+        padding: 150px 0;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 4.2rem;
+        font-weight: 700;
+        color: var(--accent-color);
+      }
+
+      .hero p {
+        font-size: 1.4rem;
+        margin-top: 20px;
+        color: #bbb;
+      }
+
+      .btn-primary {
+        background-color: var(--accent-color);
+        border-color: var(--accent-color);
+        font-weight: 500;
+      }
+
+      .btn-primary:hover {
+        background-color: #218838;
+      }
+
+      .btn-outline-primary {
+        border-color: var(--accent-color);
+        color: var(--accent-color);
+      }
+
+      .btn-outline-primary:hover {
+        background-color: var(--accent-color);
+        color: #fff;
+      }
+
+      .project-card {
+        background-color: var(--card-bg);
+        color: var(--card-text-color);
+        border: 1px solid #333;
+        border-radius: 12px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+
+      .project-card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 10px 25px rgba(40, 167, 69, 0.3);
+      }
+
+      .skills {
+        background-color: var(--card-bg);
+        padding: 60px 0;
+      }
+  .skill-card {
+    background: linear-gradient(to right, #4caf50, #1e7e34); /* Light to Dark Green */
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 128, 0, 0.3);
+    transition: transform 0.3s ease;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .skill-card:hover {
+    transform: translateY(-8px);
+  }
+
+      .skill-badge {
+        background-color: var(--badge-bg);
+        color: #fff;
+        border-radius: 20px;
+        padding: 10px 20px;
+        margin: 8px;
+        display: inline-block;
+        font-weight: 600;
+      }
+
+      .contact-info p {
+        font-size: 1.1rem;
+      }
+
+      .link-primary {
+        color: var(--accent-color);
+      }
+
+      .link-primary:hover {
+        text-decoration: underline;
+      }
+
+      .footer {
+        background-color: #111;
+        text-align: center;
+        padding: 30px 0;
+        font-size: 0.9rem;
+        color: #777;
+        margin-top: 60px;
+      }
+
+      #loader {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background: var(--bg-color);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .contact-card {
+    background-color: var(--card-bg);
+    color: var(--card-text-color);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 4px 20px rgba(0, 128, 0, 0.2);
+    height: 100%;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+
+      .loader-circle {
+        width: 60px;
+        height: 60px;
+        border: 6px solid var(--accent-color);
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      #theme-toggle {
+        background-color: var(--btn-toggle-bg);
+        color: var(--btn-toggle-color);
+        border: none;
+      }
+
+      #theme-toggle:hover {
+        opacity: 0.8;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Theme Switcher -->
+    <div class="text-end p-3">
+      <button class="btn btn-sm" onclick="toggleTheme()" id="theme-toggle">Change Theme</button>
     </div>
-  </section>
 
-  <!-- About Section -->
+    <!-- Loader -->
+    <div id="loader">
+      <div class="loader-circle"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" data-aos="fade-up">
+      <div class="container">
+        <h1>Hi, I'm Talha</h1>
+        <p class="lead">Creative Web Developer | Front-End Specialist | UI/UX Explorer</p>
+        <a href="#projects" class="btn btn-primary mt-4">Explore My Work</a><br>
+        <a href="#" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#cvModal">View My CV</a>
+      </div>
+    </section>
+
+  <!-- About -->
   <section id="about" class="py-5" data-aos="fade-up">
     <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <p>I am a passionate and skilled web developer with experience in creating responsive, modern, and user-friendly websites. I specialize in HTML, CSS, JavaScript, and Bootstrap, and I'm always looking to learn new technologies and design trends to enhance my work.</p>
+      <h2 class="section-title text-center mb-5 animate__animated animate__fadeInDown">
+        <span style="color: var(--accent-color); font-size: 2.2rem;">👨‍💻</span> 
+        <span style="border-bottom: 3px solid var(--accent-color); padding-bottom: 5px;">
+          About Me
+        </span>
+      </h2>
+
+      <div class="row align-items-start"> <!-- changed align-items-center to align-items-start -->
+        <div class="col-md-5 mb-4 mb-md-0 text-center">
+          <div style="width: 100%; max-width: 450px; margin: 0 auto;">
+            <img src="assets/WhatsApp Image 2025-07-29 at 6.03.51 PM.jpeg" alt="Talha"
+              class="img-fluid rounded shadow"
+              style="width: 100%; height: 500px; object-fit: cover; object-position: top center; border-radius: 15px;" />
+          </div>
+        </div>
+
+        <div class="col-md-7 d-flex flex-column justify-content-start"> <!-- ensure text is top aligned -->
+    <div>
+    <p class="lead" style="font-size: 1.2rem;">
+      Hello! I'm <strong style="color: var(--accent-color);">Talha</strong>, a dedicated and detail-oriented <strong>ASP.NET Core Developer</strong> with a passion for building scalable, secure, and high-performance web applications. I specialize in backend development using 
+      <strong>ASP.NET Core, Entity Framework (Code First Approach), and SQL Server</strong>, while also having a solid understanding of 
+      <strong>HTML, CSS, JavaScript</strong>, and <strong>Bootstrap</strong> for front-end integration.
+    </p>
+    <p class="mt-3">
+      I focus on writing clean, maintainable code and developing robust RESTful APIs. From designing database schemas to implementing complex business logic, I ensure every solution I build is optimized for performance and user experience.
+    </p>
+    <p class="mt-3">
+      I'm always eager to learn modern technologies, follow clean architecture principles, and contribute to meaningful software projects that make an impact.
+    </p>
+  </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section class="skills" data-aos="fade-up">
+
+
+  <!-- Skills -->
+  <section class="skills py-5" data-aos="fade-up">
     <div class="container text-center">
-      <h2 class="section-title">Skills</h2>
-      <div class="mt-4">
-        <span class="skill-badge">HTML5</span>
-        <span class="skill-badge">CSS3</span>
-        <span class="skill-badge">JavaScript</span>
-        <span class="skill-badge">Bootstrap 5</span>
-        <span class="skill-badge">Responsive Design</span>
-        <span class="skill-badge">Git & GitHub</span>
-        <span class="skill-badge">UI/UX Principles</span>
+      <h2 class="section-title mb-5">My Skills</h2>
+
+      <!-- Programming Languages -->
+      <h4 class="text-success mb-3">💻 Programming Languages</h4>
+      <div class="row justify-content-center mb-4">
+        <div class="col-6 col-sm-4 col-md-3 mb-3" data-aos="zoom-in" data-aos-delay="100">
+          <div class="skill-card">HTML5</div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 mb-3" data-aos="zoom-in" data-aos-delay="200">
+          <div class="skill-card">CSS3</div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 mb-3" data-aos="zoom-in" data-aos-delay="300">
+          <div class="skill-card">JavaScript</div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 mb-3" data-aos="zoom-in" data-aos-delay="400">
+          <div class="skill-card">C#</div>
+        </div>
+         <div class="col-6 col-sm-4 col-md-3 mb-3" data-aos="zoom-in" data-aos-delay="400">
+          <div class="skill-card">Php</div>
+        </div>
+         <div class="col-6 col-sm-4 col-md-3 mb-3" data-aos="zoom-in" data-aos-delay="400">
+          <div class="skill-card">Dart</div>
+        </div>
+      </div>
+
+      <!-- Databases -->
+      <h4 class="text-success mb-3">🗃️ Databases</h4>
+      <div class="row justify-content-center mb-4">
+        <div class="col-6 col-sm-4 col-md-3 mb-3" data-aos="zoom-in" data-aos-delay="500">
+          <div class="skill-card">SQL Server</div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 mb-3" data-aos="zoom-in" data-aos-delay="600">
+          <div class="skill-card">MySQL</div>
+        </div>
+          <div class="col-6 col-sm-4 col-md-3 mb-3" data-aos="zoom-in" data-aos-delay="600">
+          <div class="skill-card">Firebase</div>
+        </div>
+      </div>
+
+      <!-- Tools & Others -->
+      <h4 class="text-success mb-3">🛠️ Frameworks & Libraries</h4>
+      <div class="row justify-content-center">
+        <div class="col-6 col-sm-4 col-md-3 mb-3" data-aos="zoom-in" data-aos-delay="700">
+          <div class="skill-card">Bootstrap 5</div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 mb-3" data-aos="zoom-in" data-aos-delay="800">
+          <div class="skill-card">Asp.Net Core</div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 mb-3" data-aos="zoom-in" data-aos-delay="900">
+          <div class="skill-card">Angular</div>
+        </div>
+        <div class="col-6 col-sm-4 col-md-3 mb-3" data-aos="zoom-in" data-aos-delay="1000">
+          <div class="skill-card">Flutter</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="py-5" data-aos="fade-up">
-    <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card project-card p-4">
-            <h5>Modern Landing Page</h5>
-            <p>Crafted a sleek and professional landing page using Bootstrap 5, perfect for startups and products.</p>
-            <a href="#" class="btn btn-outline-primary btn-sm">Live Demo</a>
+    <!-- Projects -->
+    <section id="projects" class="py-5" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title text-center mb-5 animate__animated animate__fadeInDown">
+          <span style="color: var(--accent-color); font-size: 2.2rem;">🚀</span> 
+          <span style="border-bottom: 3px solid var(--accent-color); padding-bottom: 5px;">
+            Featured Projects
+          </span>
+        </h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card project-card p-4">
+              <h5>Modern Landing Page</h5>
+              <p>Crafted a sleek and professional landing page using Bootstrap 5, perfect for startups and products.</p>
+              <a href="#" class="btn btn-outline-primary btn-sm">Live Demo</a>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card project-card p-4">
-            <h5>Dark Portfolio Website</h5>
-            <p>Developed a dark-themed, interactive portfolio with animations and responsive layout.</p>
-            <a href="#" class="btn btn-outline-primary btn-sm">Live Demo</a>
+          <div class="col-md-4">
+            <div class="card project-card p-4">
+              <h5>Dark Portfolio Website</h5>
+              <p>Developed a dark-themed, interactive portfolio with animations and responsive layout.</p>
+              <a href="#" class="btn btn-outline-primary btn-sm">Live Demo</a>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card project-card p-4">
-            <h5>Interactive Dashboard</h5>
-            <p>Built a dynamic dashboard using JavaScript and Bootstrap components for admin interfaces.</p>
-            <a href="#" class="btn btn-outline-primary btn-sm">Live Demo</a>
+          <div class="col-md-4">
+            <div class="card project-card p-4">
+              <h5>Interactive Dashboard</h5>
+              <p>Built a dynamic dashboard using JavaScript and Bootstrap components for admin interfaces.</p>
+              <a href="#" class="btn btn-outline-primary btn-sm">Live Demo</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
+    <!-- Contact -->
   <section id="contact" class="py-5" data-aos="fade-up">
     <div class="container">
-      <h2 class="section-title">Contact Me</h2>
-      <div class="contact-info">
-        <p><strong>Email:</strong> talha@example.com</p>
-        <p><strong>GitHub:</strong> <a href="#" class="link-primary">github.com/talha</a></p>
-        <p><strong>LinkedIn:</strong> <a href="#" class="link-primary">linkedin.com/in/talha</a></p>
+      <h2 class="section-title text-center mb-5 animate__animated animate__fadeInDown">
+        <span style="color: var(--accent-color); font-size: 2.2rem;">📞</span>
+        <span style="border-bottom: 3px solid var(--accent-color); padding-bottom: 5px;">
+          Get in Touch
+        </span>
+      </h2>
+
+      <div class="row justify-content-center text-center">
+        <div class="col-md-6 col-lg-4 mb-4">
+      <div class="contact-card p-4">
+            <i class="bi bi-envelope-fill fs-3 text-success mb-2"></i>
+            <h5>Email</h5>
+            <p class="mb-1">talha@example.com</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+        <div class="contact-card p-4">
+
+            <i class="bi bi-telephone-fill fs-3 text-success mb-2"></i>
+            <h5>Phone</h5>
+            <p class="mb-1">+92 300 1234567</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+        <div class="contact-card p-4">
+
+            <i class="bi bi-github fs-3 text-success mb-2"></i>
+            <h5>GitHub</h5>
+            <a href="https://github.com/talha" class="link-primary" target="_blank">github.com/talha</a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+      <div class="contact-card p-4">
+
+            <i class="bi bi-linkedin fs-3 text-success mb-2"></i>
+            <h5>LinkedIn</h5>
+            <a href="https://linkedin.com/in/talha" class="link-primary" target="_blank">linkedin.com/in/talha</a>
+          </div>
+        </div>
       </div>
+    </div>      
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+     <h2 class="section-title text-center mb-5 animate__animated animate__fadeInDown">
+        <span style="color: var(--accent-color); font-size: 2.2rem;">📞</span>
+        <span style="border-bottom: 3px solid var(--accent-color); padding-bottom: 5px;">
+          Certifications
+        </span>
+      </h2>
+      <ul class="list-group">
+        <li class="list-group-item bg-danger">ASP.NET Core Development – Aptech Institute (2024)</li>
+          <li class="list-group-item">Front-End Development – Aptech Institue</li>
+        <li class="list-group-item">Full Stack Web Development (Angular + .NET) – Aptech Institute</li>
+        <li class="list-group-item">Php development – Aptech Institue</li>
+        <li class="list-group-item">Flutter Development – Aptech Institue</li> 
+      </ul>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer" data-aos="fade-up">
-    <div class="container">
-      <p>&copy; 2025 Talha. Crafted with passion and Bootstrap 💚</p>
+
+    <!-- Footer -->
+    <footer class="footer" data-aos="fade-up">
+      <div class="container">
+        <p>&copy; 2025 Talha. Crafted with passion and Bootstrap 💚</p>
+      </div>
+    </footer>
+
+<!-- CV Modal -->
+<div class="modal fade" id="cvModal" tabindex="-1" aria-labelledby="cvModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content bg-dark text-white rounded-4 shadow-lg border border-success">
+      
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="cvModalLabel">📄 Talha's Resume</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <div class="modal-body text-center">
+        <!-- 🔼 Buttons moved to top of body -->
+        <div class="d-flex justify-content-start gap-2 mb-3">
+          <a href="assets/Talha khan Dotnet Developer.pdf" download class="btn btn-success">⬇️ Download CV</a>
+          <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">❌ Close</button>
+        </div>
+
+        <!-- 📄 CV display -->
+        <iframe src="assets/Talha khan Dotnet Developer.pdf" width="100%" height="600px" style="border: 2px solid #28a745; border-radius: 12px;"></iframe>
+      </div>
+
     </div>
-  </footer>
+  </div>
+</div>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    window.addEventListener('load', () => {
-      document.getElementById('loader').style.display = 'none';
-      AOS.init({ duration: 1000 });
-    });
 
-    let isDark = true;
-    function toggleTheme() {
-      const styleTag = document.getElementById('theme-style');
-      if (isDark) {
-        styleTag.innerHTML = `
-        :root {
-          --bg-color: #ffffff;
-          --text-color: #111;
-          --accent-color: #007bff;
-          --card-bg: #f8f9fa;
-          --card-text-color: #000000;
-          --badge-bg: #007bff;
-          --btn-toggle-bg: #000000;
-          --btn-toggle-color: #ffffff;
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      window.addEventListener('load', () => {
+        document.getElementById('loader').style.display = 'none';
+        AOS.init({ duration: 1000 });
+      });
+
+      let isDark = true;
+      function toggleTheme() {
+        const styleTag = document.getElementById('theme-style');
+        if (isDark) {
+          styleTag.innerHTML = `
+          :root {
+            --bg-color: #ffffff;
+            --text-color: #111;
+            --accent-color: #007bff;
+            --card-bg: #f8f9fa;
+            --card-text-color: #000000;
+            --badge-bg: #007bff;
+            --btn-toggle-bg: #000000;
+            --btn-toggle-color: #ffffff;
+          }
+          ` + styleTag.innerHTML.slice(styleTag.innerHTML.indexOf('body'));
+        } else {
+          styleTag.innerHTML = `
+          :root {
+            --bg-color: #0e0e0e;
+            --text-color: #d4d4d4;
+            --accent-color: #28a745;
+            --card-bg: #1b1b1b;
+            --card-text-color: #ffffff;
+            --badge-bg: #28a745;
+            --btn-toggle-bg: #ffffff;
+            --btn-toggle-color: #000000;
+          }
+          ` + styleTag.innerHTML.slice(styleTag.innerHTML.indexOf('body'));
         }
-        ` + styleTag.innerHTML.slice(styleTag.innerHTML.indexOf('body'));
-      } else {
-        styleTag.innerHTML = `
-        :root {
-          --bg-color: #0e0e0e;
-          --text-color: #d4d4d4;
-          --accent-color: #28a745;
-          --card-bg: #1b1b1b;
-          --card-text-color: #ffffff;
-          --badge-bg: #28a745;
-          --btn-toggle-bg: #ffffff;
-          --btn-toggle-color: #000000;
-        }
-        ` + styleTag.innerHTML.slice(styleTag.innerHTML.indexOf('body'));
+        isDark = !isDark;
       }
-      isDark = !isDark;
-    }
-  </script>
-</body>
-
-</html>
+    </script>
+  </body>
+  </html>
